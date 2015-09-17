@@ -11,3 +11,4 @@ PROMPT=no
 SINGLE=/sbin/sulogin
 AUTOSWAP=no
 UMASK=027
+umask 027

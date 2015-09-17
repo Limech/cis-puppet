@@ -1,8 +1,0 @@
-# Class cis::awslinux::3_5
-#
-# CIS Security Benchmark for RHEL7
-#
-
-class cis::awslinux::3_5     {
-  include cis::linuxcontrols::c0036
-}

@@ -4,5 +4,7 @@
 # Puppet. See subclasses for benchmarks for specific systems or applications.
 #
 
+
 class cis {
+  include cis::el6all
 }

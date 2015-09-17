@@ -7,4 +7,8 @@ class cis::linuxcontrols::c0064 {
   file {'/etc/at.deny':
     ensure  => absent,
   }
+  
+  file {'/etc/cron.deny':
+    ensure  => absent,
+  }
 }

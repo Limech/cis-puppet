@@ -5,7 +5,7 @@
 
 COMMAND=`grep '^+:' /etc/group`
 
-if [ x$COMMAND == x ]; then 
+if [ x$FILES == x ]; then 
   echo pass;
 else 
   echo fail;

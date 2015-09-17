@@ -35,7 +35,7 @@
 
 -w /var/log/faillog -p wa -k logins
 -w /var/log/lastlog -p wa -k logins
--w /var/log/tallylog -p -wa -k logins
+-w /var/log/tallylog -p wa -k logins
 
 -w /var/run/utmp -p wa -k session
 -w /var/log/wtmp -p wa -k session
@@ -47,6 +47,7 @@
 -a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=500 -F auid!=4294967295 -k perm_mod
 -a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=500 -F auid!=4294967295 -k perm_mod
 -a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=500 -F auid!=4294967295 -k perm_mod
+-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removex
 
 -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=500 -F auid!=4294967295 -k access
 -a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=500 -F auid!=4294967295 -k access
@@ -66,12 +67,13 @@
 -w /sbin/insmod -p x -k modules
 -w /sbin/rmmod -p x -k modules
 -w /sbin/modprobe -p x -k modules
--a always,exit arch=b64 -S init_module -S delete_module -k modules
+-a always,exit -F arch=b64 -S init_module -S delete_module -k modules
+
 
 -w /sbin/insmod -p x -k modules
 -w /sbin/rmmod -p x -k modules
 -w /sbin/modprobe -p x -k modules
--a always,exit arch=b64 -S init_module -S delete_module -k modules
+-a always,exit -F arch=b32 -S init_module -S delete_module -k modules
 
 -e 2
 

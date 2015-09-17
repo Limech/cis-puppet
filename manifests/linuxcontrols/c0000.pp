@@ -5,10 +5,12 @@
 # settings in most cases.
 #
 class cis::linuxcontrols::c0000 {
+  
   file {'/etc/fstab':
-    owner => root,
-    group => root,
-    mode  => '0600',
+    source  => 'puppet:///modules/cis/el6/etc/fstab',
+    owner   => root,
+    group   => root,
+    mode    => '0600',
   }
 
   mount {'/tmp':
@@ -37,13 +39,5 @@ class cis::linuxcontrols::c0000 {
 
   mount {'/dev/shm':
     options => 'nodev,nosuid,noexec',
-  }
-
-  # 1.1.6
-  mount {'/var/tmp':
-    ensure  => 'mounted',
-    device  => '/tmp',
-    fstype  => 'none',
-    options => 'bind',
   }
 }
