@@ -12,14 +12,4 @@ class cis::linuxcontrols::c0073 {
     group   => root,
     mode    => '0644',
   }
-  
-  # Make changes to already existing vagrant account as well.
-  exec {'vagrant pass chage':
-     command => "/usr/bin/chage --maxdays 90 --mindays 7 --warndays 7 vagrant"
-  }
-  
-  exec {'root pass chage':
-     command => "/usr/bin/chage --maxdays 90 --mindays 7 --warndays 7 root"
-  }
-  
 }
