@@ -9,6 +9,6 @@ class cis::linuxcontrols::c0051 {
     owner   => root,
     group   => root,
     mode    => '0640',
-    notify  => Service['auditd'],
+   # notify  => Service['auditd'],
     }
 }

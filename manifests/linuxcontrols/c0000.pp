@@ -7,7 +7,6 @@
 class cis::linuxcontrols::c0000 {
   
   file {'/etc/fstab':
-    source  => 'puppet:///modules/cis/el6/etc/fstab',
     owner   => root,
     group   => root,
     mode    => '0600',
@@ -23,6 +22,7 @@ class cis::linuxcontrols::c0000 {
 
   mount {'/var/log':
     options => 'nodev',
+	device => '/dev/mapper/vg_root-var',
   }
 
   mount {'/var/log/audit':
@@ -37,7 +37,8 @@ class cis::linuxcontrols::c0000 {
     options => 'nodev',
   }
 
-  mount {'/dev/shm':
-    options => 'nodev,nosuid,noexec',
-  }
+#  mount {'/dev/shm':
+#    options => 'nodev,nosuid,noexec',
+#	device => '/dev/mapper/vg_root-var',
+#  }
 }
