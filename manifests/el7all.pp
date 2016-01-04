@@ -121,9 +121,9 @@ class cis::el7all {
   include cis::el7::6_2_8
   include cis::el7::6_2_9
   include cis::el7::6_3_1
-  include cis::el7::6_3_2
-  include cis::el7::6_3_3
-  include cis::el7::6_3_6
+  #include cis::el7::6_3_2
+  #include cis::el7::6_3_3
+  #include cis::el7::6_3_6
   include cis::el7::6_5
   include cis::el7::7_1_1
   include cis::el7::7_1_2
