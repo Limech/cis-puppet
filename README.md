@@ -3,16 +3,12 @@ Overview
  
 This module implements the Center for Internet Security (CIS) Security Configuration Benchmark for Red Hat Enterprise Linux 6 v.1.1.0 (avilable at http://benchmarks.cisecurity.org). Each scored control has been implemented as a class or a custom fact.
 
-Installation
-============
-
-Please either:
-
-- Clone git repo from https://github.com/arildjensen/cis-puppet
-- Run "puppet module install arildjensen/cis" and install from PuppetForge (http://forge.puppetlabs.com/arildjensen/cis)
 
 Use
 ===
+
+These manifests scripts are mostly used along the Packer Templates scripts for hardening during the creation of VMs.
+These scripts could in theory be used in other situations but this has not been tested. 
 
 The class cis::el6all will enforce all the controls. If you wish to deviate please look for the el6all.pp file and use that as a template. Note that some of the scored controls not able to be written in Puppet code have been implemented as custom facts using Facter. Controls labeled "not scored" by the benchmark are not included.
 
@@ -35,7 +31,7 @@ cis::aide_cron_check:
   minute: 30
 ```
 
-Author
+Original Author
 ====
 
 Written by Arild Jensen <ajensen@counter-attack.com> with source code repository at https://github.com/arildjensen/cis-puppet.
